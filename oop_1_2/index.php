@@ -111,5 +111,9 @@ echo $electricTruck -> brake();
 echo '<br> Vitesse du camion  : ' . $electricTruck -> getCurrentSpeed() . ' km/h' . '<br>';
 echo $electricTruck -> brake();
 echo '<br>'. '<br>';
+
+
+
+
 ?>
 
