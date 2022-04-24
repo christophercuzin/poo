@@ -199,12 +199,12 @@ echo "<br>";echo "<br>";
 var_dump($residentialWay->addVehicles($margeStationWagon));
 echo "<br>";echo "<br>";echo "<br>";
 
-echo 'convertion de km en miles ';
+echo 'conversion de km en miles ';
 echo Speedometer::convertKmToMiles(10);
 echo "<br>"; 
 echo "<br>";
 
-echo 'convertion de km en miles ';
+echo 'conversion de miles en km ';
 echo Speedometer::convertMilesToKm(10);
 
 ?>
