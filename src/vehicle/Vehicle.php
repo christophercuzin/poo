@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Vehicle;
+
 abstract class Vehicle
 {
     protected string $color;

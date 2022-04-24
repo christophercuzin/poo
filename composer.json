@@ -1,0 +1,18 @@
+{
+    "name": "chris/oop",
+    "description": "projet quete composer",
+    "autoload": {
+        "psr-4": {
+            "App\\Vehicle\\": "src/vehicle",
+            "App\\Lane\\": "src/lane",
+            "App\\Interface\\": "src/interface"
+        }
+    },
+    "authors": [
+        {
+            "name": "christopher cuzin",
+            "email": "ed.ed1009@hotmail.fr"
+        }
+    ],
+    "require": {}
+}

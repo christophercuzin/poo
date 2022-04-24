@@ -1,6 +1,11 @@
 <?php
-require_once 'Vehicle.php';
-class Car extends Vehicle {
+
+namespace App\Vehicle;
+
+use App\Interface\LightableInterface;
+
+class Car extends Vehicle implements LightableInterface
+{
 
     public const ALLOWED_ENERGIES = [
         'fuel',
@@ -10,10 +15,12 @@ class Car extends Vehicle {
     private int $energyLevel;
     private string $energy;
 
-    public function __construct(string $color, int $nbSeats, string $energy)
+    public function __construct(string $color, int $nbSeats, string $energy, bool $hasParkBrake = true)
     {
         parent::__construct($color, $nbSeats);
         $this->setEnergy($energy) ;
+        $this->hasParkBrake = $hasParkBrake;
+
     }
     
 
@@ -56,10 +63,21 @@ class Car extends Vehicle {
 
     public function start(): string
     {
-        $this-> energyLevel --;
-        return 'let\'s start !';
-    }
-   
 
+            $this-> energyLevel --;
+            return 'let\'s start !';
+    }
+
+    
+    public function switchOn():bool
+    {
+        return true;
+    }
+    
+    public function switchOff():bool
+    {
+        return false;
+    }
+       
 }
 ?>

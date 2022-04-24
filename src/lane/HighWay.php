@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Lane;
+
 abstract class HighWay {
     protected array $currentVehicles = [];
     protected int $nbLane;
@@ -41,7 +43,7 @@ abstract class HighWay {
         $this->maxSpeed = $maxSpeed;
     }
 
-    abstract public function addVehicles(string $typeOfVehicles);
+    abstract public function addVehicles(Object $typeOfVehicles);
     
     
 }

@@ -1,5 +1,6 @@
 <?php
-require_once 'HighWay.php';
+namespace App\Lane;
+
 final class ResidentialWay extends HighWay{
 
     public function __construct()
@@ -7,7 +8,7 @@ final class ResidentialWay extends HighWay{
         parent::__construct(2, 50);
     }
 
-    public function addVehicles(string $typeOfVehicles): array
+    public function addVehicles(Object $typeOfVehicles)
     {
            
         $this->currentVehicles[] = $typeOfVehicles;

@@ -1,6 +1,11 @@
 <?php
-require_once 'Vehicle.php';
-class Truck extends Vehicle{
+
+namespace App\Vehicle;
+
+use App\Interface\LightableInterface;
+
+class Truck extends Vehicle implements LightableInterface
+{
     public const ALLOWED_ENERGIES = [
         'fuel',
         'electric',
@@ -88,6 +93,16 @@ class Truck extends Vehicle{
             $this->currentStorage = $currentStorage;
         }
         return $this;
+    }
+
+    public function switchOn():bool
+    {
+        return true;
+    }
+    
+    public function switchOff():bool
+    {
+        return false;
     }
 
    

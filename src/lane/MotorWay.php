@@ -1,5 +1,10 @@
 <?php
-require_once 'HighWay.php';
+
+namespace App\Lane;
+
+use App\Vehicle\Bicycle;
+use App\Vehicle\Skateboard;
+
 final class MotorWay extends HighWay{
 
     public function __construct()
@@ -7,9 +12,10 @@ final class MotorWay extends HighWay{
         parent::__construct(4, 130);
     }
     
-    public function addVehicles(string $typeOfVehicles): array
+    public function addVehicles(Object $typeOfVehicles)
     {
-        if ($typeOfVehicles !== 'bike' && $typeOfVehicles !== 'Skateboard')
+        
+        if (!($typeOfVehicles instanceof Bicycle) && !($typeOfVehicles instanceof Skateboard))
         {
             $this->currentVehicles[] = $typeOfVehicles;
         } else {

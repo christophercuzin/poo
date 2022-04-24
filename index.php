@@ -1,14 +1,22 @@
 <?php
 
-require_once 'Car.php';
-require_once 'Bicycle.php';
-require_once 'Truck.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
+use App\Vehicle\Bicycle;
+use App\Vehicle\Skateboard;
+use App\Vehicle\Car;
+use App\Vehicle\Truck;
+use App\Lane\MotorWay;
+use App\Lane\PedestrianWay;
+use App\Lane\ResidentialWay;
+
+
 //new bicycle bike
 $bike = new Bicycle('blue', 1);
 $bike->setCurrentSpeed(15);
 $bike->setNbWheels(2);
 
-var_dump($bike);
+
 echo "<br>";
 echo $bike -> forward();
 echo '<br> Vitesse du velo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
@@ -23,7 +31,7 @@ $tornado = new Bicycle('black', 1);
 $tornado->setCurrentSpeed(25);
 $tornado->setNbWheels(2);
 
-var_dump($tornado);
+
 echo "<br>";
 echo $tornado -> forward();
 echo '<br> Vitesse du velo : ' . $tornado->getCurrentSpeed() . ' km/h' . '<br>';
@@ -32,6 +40,20 @@ echo '<br> vitesse du velo : ' . $tornado->getCurrentSpeed() . ' km/h' . '<br>';
 echo $tornado -> brake();
 echo '<br>'. '<br>';
 
+$skateboard = new Skateboard('yellow', 1);
+$skateboard->setCurrentSpeed(5);
+$skateboard->setNbWheels(4);
+
+
+echo "<br>";
+echo $skateboard -> forward();
+echo '<br> Vitesse du skateboard : ' . $skateboard->getCurrentSpeed() . ' km/h' . '<br>';
+echo $skateboard -> brake();
+echo '<br> vitesse du velo : ' . $skateboard->getCurrentSpeed() . ' km/h' . '<br>';
+echo $skateboard -> brake();
+echo '<br>'. '<br>';
+
+
 
 //new car lil bandit
 $lilBandit = new Car('red', 2 , 'electric');
@@ -39,7 +61,7 @@ $lilBandit->setCurrentSpeed(90);
 $lilBandit->setNbWheels(4);
 $lilBandit->setEnergyLevel(200);
 
-var_dump($lilBandit);
+
 echo "<br>";
 echo $lilBandit -> start();
 echo '<br> autonomie restante : ' . $lilBandit -> getEnergyLevel() . 'km' . '<br>';
@@ -57,7 +79,7 @@ $margeStationWagon->setCurrentSpeed(60);
 $margeStationWagon->setNbWheels(4);
 $margeStationWagon->setEnergyLevel(20);
 
-var_dump($margeStationWagon);
+
 echo "<br>";
 echo $margeStationWagon -> start();
 echo '<br> quantité de d\'essence restant : ' . $margeStationWagon -> getEnergyLevel() . 'litres' . '<br>';
@@ -78,7 +100,7 @@ $americanTruck->setCurrentStorage('full');
 
 
 
-var_dump($americanTruck);
+
 echo "<br>";
 echo '<br> chargement actuelle : ' . $americanTruck -> getCurrentStorage() . '<br>';
 echo $americanTruck -> start();
@@ -100,7 +122,7 @@ $electricTruck->setCurrentStorage('in filling');
 
 
 
-var_dump($electricTruck);
+
 echo "<br>";
 echo '<br> chargement actuelle : ' . $electricTruck -> getCurrentStorage() . '<br>';
 echo $electricTruck -> start();
@@ -113,6 +135,68 @@ echo $electricTruck -> brake();
 echo '<br>'. '<br>';
 
 
+$motorWay = new MotorWay;
+
+echo 'motor way :';
+echo "<br>";echo "<br>";
+echo $motorWay->getNbLane() . " voies";
+echo "<br>";echo "<br>";
+echo $motorWay->getMaxSpeed(). "km/h";
+echo "<br>";echo "<br>";
+var_dump($motorWay->getCurrentVehicles());
+echo "<br>";echo "<br>";
+var_dump($motorWay->addVehicles($lilBandit));
+echo "<br>";echo "<br>";
+var_dump($motorWay->addVehicles($bike));
+echo "<br>";echo "<br>";
+var_dump($motorWay->addVehicles($americanTruck));
+echo "<br>";echo "<br>";
+var_dump($motorWay->addVehicles($skateboard));
+echo "<br>";echo "<br>";
+var_dump($motorWay->addVehicles($margeStationWagon));
+echo "<br>";echo "<br>";echo "<br>";
+
+$pedestrianWay = new PedestrianWay;
+
+echo 'pedestrian way :';
+echo "<br>";echo "<br>";
+echo $pedestrianWay->getNbLane() . " voies";
+echo "<br>";echo "<br>";
+echo $pedestrianWay->getMaxSpeed(). "km/h";
+echo "<br>";echo "<br>";
+var_dump($pedestrianWay->getCurrentVehicles());
+echo "<br>";echo "<br>";
+var_dump($pedestrianWay->addVehicles($lilBandit));
+echo "<br>";echo "<br>";
+var_dump($pedestrianWay->addVehicles($bike));
+echo "<br>";echo "<br>";
+var_dump($pedestrianWay->addVehicles($americanTruck));
+echo "<br>";echo "<br>";
+var_dump($pedestrianWay->addVehicles($skateboard));
+echo "<br>";echo "<br>";
+var_dump($pedestrianWay->addVehicles($margeStationWagon));
+echo "<br>";echo "<br>";echo "<br>";
+
+$residentialWay= new ResidentialWay;
+
+echo 'residential way :';
+echo "<br>";echo "<br>";
+echo $residentialWay->getNbLane() . " voies";
+echo "<br>";echo "<br>";
+echo $residentialWay->getMaxSpeed(). "km/h";
+echo "<br>";echo "<br>";
+var_dump($residentialWay->getCurrentVehicles());
+echo "<br>";echo "<br>";
+var_dump($residentialWay->addVehicles($lilBandit));
+echo "<br>";echo "<br>";
+var_dump($residentialWay->addVehicles($bike));
+echo "<br>";echo "<br>";
+var_dump($residentialWay->addVehicles($americanTruck));
+echo "<br>";echo "<br>";
+var_dump($residentialWay->addVehicles($skateboard));
+echo "<br>";echo "<br>";
+var_dump($residentialWay->addVehicles($margeStationWagon));
+echo "<br>";echo "<br>";echo "<br>";
 
 
 ?>
