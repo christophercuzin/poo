@@ -9,6 +9,7 @@ use App\Vehicle\Truck;
 use App\Lane\MotorWay;
 use App\Lane\PedestrianWay;
 use App\Lane\ResidentialWay;
+use App\Convert\Speedometer;
 
 
 //new bicycle bike
@@ -198,6 +199,13 @@ echo "<br>";echo "<br>";
 var_dump($residentialWay->addVehicles($margeStationWagon));
 echo "<br>";echo "<br>";echo "<br>";
 
+echo 'convertion de km en miles ';
+echo Speedometer::convertKmToMiles(10);
+echo "<br>"; 
+echo "<br>";
+
+echo 'convertion de km en miles ';
+echo Speedometer::convertMilesToKm(10);
 
 ?>
 

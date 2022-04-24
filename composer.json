@@ -5,7 +5,9 @@
         "psr-4": {
             "App\\Vehicle\\": "src/vehicle",
             "App\\Lane\\": "src/lane",
-            "App\\Interface\\": "src/interface"
+            "App\\Interface\\": "src/interface",
+            "App\\Convert\\": "src/convert"
+
         }
     },
     "authors": [
